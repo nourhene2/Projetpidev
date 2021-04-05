@@ -1,0 +1,12 @@
+INPUT(
+./debug\commande.o
+./debug\gestion_commande.o
+./debug\gestion_reservation.o
+./debug\main.o
+./debug\mainwindow.o
+./debug\connection.o
+./debug\reservation.o
+./debug\moc_gestion_commande.o
+./debug\moc_gestion_reservation.o
+./debug\moc_mainwindow.o
+);

@@ -1,0 +1,12 @@
+INPUT(
+./release\commande.o
+./release\gestion_commande.o
+./release\gestion_reservation.o
+./release\main.o
+./release\mainwindow.o
+./release\connection.o
+./release\reservation.o
+./release\moc_gestion_commande.o
+./release\moc_gestion_reservation.o
+./release\moc_mainwindow.o
+);
