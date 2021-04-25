@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>923</width>
+    <width>800</width>
     <height>600</height>
    </rect>
   </property>
@@ -17,8 +17,8 @@
    <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>20</y>
+      <x>110</x>
+      <y>0</y>
       <width>681</width>
       <height>391</height>
      </rect>
@@ -55,26 +55,26 @@
      </widget>
     </widget>
     <widget class="QWidget" name="page_3">
-     <widget class="QTabWidget" name="tabWidget_2">
+     <widget class="QTabWidget" name="tabWidget">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>30</y>
-        <width>681</width>
-        <height>331</height>
+        <x>50</x>
+        <y>10</y>
+        <width>561</width>
+        <height>311</height>
        </rect>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>1</number>
       </property>
-      <widget class="QWidget" name="tab_9">
+      <widget class="QWidget" name="tab">
        <attribute name="title">
         <string> Ajouter une reservation</string>
        </attribute>
-       <widget class="QGroupBox" name="groupBox_5">
+       <widget class="QGroupBox" name="groupBox">
         <property name="geometry">
          <rect>
-          <x>20</x>
+          <x>10</x>
           <y>20</y>
           <width>611</width>
           <height>241</height>
@@ -83,7 +83,7 @@
         <property name="title">
          <string>Ajout</string>
         </property>
-        <widget class="QLabel" name="label_27">
+        <widget class="QLabel" name="label_8">
          <property name="geometry">
           <rect>
            <x>60</x>
@@ -96,7 +96,7 @@
           <string>entrez l'identifiant </string>
          </property>
         </widget>
-        <widget class="QLabel" name="label_31">
+        <widget class="QLabel" name="label_9">
          <property name="geometry">
           <rect>
            <x>30</x>
@@ -109,7 +109,7 @@
           <string>entrez le nombre de personnes</string>
          </property>
         </widget>
-        <widget class="QLabel" name="label_32">
+        <widget class="QLabel" name="label_10">
          <property name="geometry">
           <rect>
            <x>40</x>
@@ -122,7 +122,7 @@
           <string>entrez le numero du client</string>
          </property>
         </widget>
-        <widget class="QLabel" name="label_33">
+        <widget class="QLabel" name="label_11">
          <property name="geometry">
           <rect>
            <x>30</x>
@@ -135,7 +135,7 @@
           <string>entrez la date de reservation</string>
          </property>
         </widget>
-        <widget class="QLineEdit" name="id_r_2">
+        <widget class="QLineEdit" name="id_r">
          <property name="geometry">
           <rect>
            <x>220</x>
@@ -145,7 +145,7 @@
           </rect>
          </property>
         </widget>
-        <widget class="QLineEdit" name="nbr_pr_2">
+        <widget class="QLineEdit" name="nbr_pr">
          <property name="geometry">
           <rect>
            <x>220</x>
@@ -155,7 +155,7 @@
           </rect>
          </property>
         </widget>
-        <widget class="QLineEdit" name="num_tel_2">
+        <widget class="QLineEdit" name="num_tel">
          <property name="geometry">
           <rect>
            <x>220</x>
@@ -165,7 +165,7 @@
           </rect>
          </property>
         </widget>
-        <widget class="QDateTimeEdit" name="dat_2">
+        <widget class="QDateTimeEdit" name="dat">
          <property name="geometry">
           <rect>
            <x>200</x>
@@ -175,7 +175,7 @@
           </rect>
          </property>
         </widget>
-        <widget class="QPushButton" name="ajouter1_2">
+        <widget class="QPushButton" name="ajouter1">
          <property name="geometry">
           <rect>
            <x>420</x>
@@ -188,7 +188,7 @@
           <string>Ajouter</string>
          </property>
         </widget>
-        <widget class="QPushButton" name="retour1_2">
+        <widget class="QPushButton" name="retour1">
          <property name="geometry">
           <rect>
            <x>420</x>
@@ -203,11 +203,11 @@
         </widget>
        </widget>
       </widget>
-      <widget class="QWidget" name="tab_10">
+      <widget class="QWidget" name="tab_2">
        <attribute name="title">
         <string>Afficher  une reservation</string>
        </attribute>
-       <widget class="QTableView" name="tab_r_2">
+       <widget class="QTableView" name="tab_r">
         <property name="geometry">
          <rect>
           <x>0</x>
@@ -217,11 +217,11 @@
          </rect>
         </property>
        </widget>
-       <widget class="QPushButton" name="pb_pdf_2">
+       <widget class="QPushButton" name="pb_pdf">
         <property name="geometry">
          <rect>
           <x>440</x>
-          <y>120</y>
+          <y>40</y>
           <width>75</width>
           <height>23</height>
          </rect>
@@ -231,23 +231,23 @@
         </property>
        </widget>
       </widget>
-      <widget class="QWidget" name="tab_11">
+      <widget class="QWidget" name="tab_3">
        <attribute name="title">
         <string>Modifier une reservation</string>
        </attribute>
-       <widget class="QGroupBox" name="groupBox_6">
+       <widget class="QGroupBox" name="groupBox_4">
         <property name="geometry">
          <rect>
-          <x>40</x>
-          <y>10</y>
+          <x>0</x>
+          <y>0</y>
           <width>621</width>
-          <height>281</height>
+          <height>251</height>
          </rect>
         </property>
         <property name="title">
          <string>Modifier</string>
         </property>
-        <widget class="QLabel" name="label_34">
+        <widget class="QLabel" name="label_12">
          <property name="geometry">
           <rect>
            <x>60</x>
@@ -260,7 +260,7 @@
           <string>entrez l'identifiant </string>
          </property>
         </widget>
-        <widget class="QLabel" name="label_35">
+        <widget class="QLabel" name="label_13">
          <property name="geometry">
           <rect>
            <x>30</x>
@@ -273,7 +273,7 @@
           <string>entrez le nombre de personnes</string>
          </property>
         </widget>
-        <widget class="QLabel" name="label_36">
+        <widget class="QLabel" name="label_19">
          <property name="geometry">
           <rect>
            <x>20</x>
@@ -286,7 +286,7 @@
           <string>entrez le num de telephone du client</string>
          </property>
         </widget>
-        <widget class="QLineEdit" name="id_r2_2">
+        <widget class="QLineEdit" name="id_r2">
          <property name="geometry">
           <rect>
            <x>230</x>
@@ -296,7 +296,7 @@
           </rect>
          </property>
         </widget>
-        <widget class="QLineEdit" name="nbr_pr2_2">
+        <widget class="QLineEdit" name="nbr_pr2">
          <property name="geometry">
           <rect>
            <x>230</x>
@@ -306,7 +306,7 @@
           </rect>
          </property>
         </widget>
-        <widget class="QLineEdit" name="num_tel2_2">
+        <widget class="QLineEdit" name="num_tel2">
          <property name="geometry">
           <rect>
            <x>230</x>
@@ -316,7 +316,7 @@
           </rect>
          </property>
         </widget>
-        <widget class="QDateTimeEdit" name="dat2_2">
+        <widget class="QDateTimeEdit" name="dat2">
          <property name="geometry">
           <rect>
            <x>190</x>
@@ -326,7 +326,7 @@
           </rect>
          </property>
         </widget>
-        <widget class="QLabel" name="label_37">
+        <widget class="QLabel" name="label_21">
          <property name="geometry">
           <rect>
            <x>50</x>
@@ -339,7 +339,7 @@
           <string>date de reservation</string>
          </property>
         </widget>
-        <widget class="QPushButton" name="modifier1_2">
+        <widget class="QPushButton" name="modifier1">
          <property name="geometry">
           <rect>
            <x>420</x>
@@ -352,7 +352,7 @@
           <string>Modifier</string>
          </property>
         </widget>
-        <widget class="QPushButton" name="retour2_2">
+        <widget class="QPushButton" name="retour2">
          <property name="geometry">
           <rect>
            <x>420</x>
@@ -367,15 +367,15 @@
         </widget>
        </widget>
       </widget>
-      <widget class="QWidget" name="tab_12">
+      <widget class="QWidget" name="tab_4">
        <attribute name="title">
         <string>Supprimer une reservation</string>
        </attribute>
-       <widget class="QPushButton" name="supprimer1_2">
+       <widget class="QPushButton" name="supprimer1">
         <property name="geometry">
          <rect>
-          <x>240</x>
-          <y>160</y>
+          <x>250</x>
+          <y>170</y>
           <width>75</width>
           <height>51</height>
          </rect>
@@ -384,7 +384,7 @@
          <string>supprimer</string>
         </property>
        </widget>
-       <widget class="QLabel" name="label_38">
+       <widget class="QLabel" name="label_22">
         <property name="geometry">
          <rect>
           <x>130</x>
@@ -397,11 +397,11 @@
          <string>entrez l'identifiant de reservation que vous voulez la supprimer </string>
         </property>
        </widget>
-       <widget class="QLineEdit" name="id_r3_2">
+       <widget class="QLineEdit" name="id_r3">
         <property name="geometry">
          <rect>
-          <x>220</x>
-          <y>110</y>
+          <x>230</x>
+          <y>100</y>
           <width>113</width>
           <height>20</height>
          </rect>
@@ -414,14 +414,14 @@
      <widget class="QTabWidget" name="recher_code_2">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>-10</x>
         <y>30</y>
         <width>621</width>
         <height>361</height>
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab_5">
        <attribute name="title">
@@ -430,8 +430,8 @@
        <widget class="QGroupBox" name="groupBox_2">
         <property name="geometry">
          <rect>
-          <x>40</x>
-          <y>10</y>
+          <x>30</x>
+          <y>20</y>
           <width>561</width>
           <height>301</height>
          </rect>
@@ -442,27 +442,27 @@
         <widget class="QLabel" name="label">
          <property name="geometry">
           <rect>
-           <x>50</x>
+           <x>40</x>
            <y>30</y>
-           <width>81</width>
-           <height>16</height>
+           <width>47</width>
+           <height>13</height>
           </rect>
          </property>
          <property name="text">
-          <string>entrez le code</string>
+          <string>code</string>
          </property>
         </widget>
         <widget class="QLabel" name="label_2">
          <property name="geometry">
           <rect>
-           <x>50</x>
+           <x>40</x>
            <y>70</y>
-           <width>81</width>
-           <height>16</height>
+           <width>47</width>
+           <height>13</height>
           </rect>
          </property>
          <property name="text">
-          <string>entrez le prix</string>
+          <string>prix</string>
          </property>
         </widget>
         <widget class="QLabel" name="label_3">
@@ -470,12 +470,12 @@
           <rect>
            <x>40</x>
            <y>110</y>
-           <width>101</width>
-           <height>20</height>
+           <width>47</width>
+           <height>13</height>
           </rect>
          </property>
          <property name="text">
-          <string>entrez code postal</string>
+          <string>cp</string>
          </property>
         </widget>
         <widget class="QLabel" name="label_4">
@@ -483,57 +483,57 @@
           <rect>
            <x>40</x>
            <y>150</y>
-           <width>101</width>
-           <height>16</height>
+           <width>47</width>
+           <height>13</height>
           </rect>
          </property>
          <property name="text">
-          <string>entrez la quantité</string>
+          <string>qt</string>
          </property>
         </widget>
         <widget class="QLabel" name="label_5">
          <property name="geometry">
           <rect>
-           <x>10</x>
+           <x>40</x>
            <y>190</y>
-           <width>151</width>
-           <height>16</height>
+           <width>47</width>
+           <height>13</height>
           </rect>
          </property>
          <property name="text">
-          <string>entrez le numero de telephone</string>
+          <string>num_telc</string>
          </property>
         </widget>
         <widget class="QLabel" name="label_6">
          <property name="geometry">
           <rect>
            <x>40</x>
-           <y>220</y>
-           <width>91</width>
-           <height>16</height>
+           <y>230</y>
+           <width>47</width>
+           <height>13</height>
           </rect>
          </property>
          <property name="text">
-          <string>entrez le nom</string>
+          <string>nom</string>
          </property>
         </widget>
         <widget class="QLabel" name="label_7">
          <property name="geometry">
           <rect>
-           <x>0</x>
-           <y>250</y>
-           <width>151</width>
-           <height>16</height>
+           <x>40</x>
+           <y>270</y>
+           <width>47</width>
+           <height>13</height>
           </rect>
          </property>
          <property name="text">
-          <string>entrez la date de la commande</string>
+          <string>datc</string>
          </property>
         </widget>
         <widget class="QLineEdit" name="code">
          <property name="geometry">
           <rect>
-           <x>180</x>
+           <x>140</x>
            <y>30</y>
            <width>113</width>
            <height>20</height>
@@ -543,7 +543,7 @@
         <widget class="QLineEdit" name="prix">
          <property name="geometry">
           <rect>
-           <x>180</x>
+           <x>140</x>
            <y>70</y>
            <width>113</width>
            <height>20</height>
@@ -553,7 +553,7 @@
         <widget class="QLineEdit" name="cp">
          <property name="geometry">
           <rect>
-           <x>180</x>
+           <x>140</x>
            <y>110</y>
            <width>113</width>
            <height>20</height>
@@ -563,7 +563,7 @@
         <widget class="QLineEdit" name="qt">
          <property name="geometry">
           <rect>
-           <x>180</x>
+           <x>140</x>
            <y>150</y>
            <width>113</width>
            <height>20</height>
@@ -573,8 +573,8 @@
         <widget class="QLineEdit" name="num_telc">
          <property name="geometry">
           <rect>
-           <x>180</x>
-           <y>180</y>
+           <x>140</x>
+           <y>190</y>
            <width>113</width>
            <height>20</height>
           </rect>
@@ -583,8 +583,8 @@
         <widget class="QLineEdit" name="nom">
          <property name="geometry">
           <rect>
-           <x>180</x>
-           <y>220</y>
+           <x>140</x>
+           <y>230</y>
            <width>113</width>
            <height>20</height>
           </rect>
@@ -593,8 +593,8 @@
         <widget class="QDateTimeEdit" name="datc">
          <property name="geometry">
           <rect>
-           <x>180</x>
-           <y>250</y>
+           <x>130</x>
+           <y>270</y>
            <width>194</width>
            <height>22</height>
           </rect>
@@ -606,7 +606,7 @@
            <x>350</x>
            <y>80</y>
            <width>75</width>
-           <height>41</height>
+           <height>23</height>
           </rect>
          </property>
          <property name="text">
@@ -619,7 +619,7 @@
            <x>350</x>
            <y>150</y>
            <width>75</width>
-           <height>41</height>
+           <height>23</height>
           </rect>
          </property>
          <property name="text">
@@ -823,21 +823,21 @@
        <widget class="QLabel" name="label_14">
         <property name="geometry">
          <rect>
-          <x>170</x>
-          <y>40</y>
-          <width>281</width>
-          <height>16</height>
+          <x>40</x>
+          <y>70</y>
+          <width>47</width>
+          <height>13</height>
          </rect>
         </property>
         <property name="text">
-         <string>entrez le code que vous souhaitez le supprimer</string>
+         <string>code</string>
         </property>
        </widget>
        <widget class="QLineEdit" name="code2">
         <property name="geometry">
          <rect>
-          <x>230</x>
-          <y>90</y>
+          <x>130</x>
+          <y>70</y>
           <width>113</width>
           <height>20</height>
          </rect>
@@ -846,14 +846,27 @@
        <widget class="QPushButton" name="supprimer2">
         <property name="geometry">
          <rect>
-          <x>250</x>
-          <y>150</y>
+          <x>200</x>
+          <y>130</y>
           <width>75</width>
-          <height>51</height>
+          <height>23</height>
          </rect>
         </property>
         <property name="text">
          <string>supprimer</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="stat">
+        <property name="geometry">
+         <rect>
+          <x>400</x>
+          <y>110</y>
+          <width>75</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>PushButton</string>
         </property>
        </widget>
       </widget>
@@ -876,10 +889,10 @@
         <widget class="QPushButton" name="modifier2">
          <property name="geometry">
           <rect>
-           <x>350</x>
-           <y>70</y>
+           <x>420</x>
+           <y>50</y>
            <width>75</width>
-           <height>41</height>
+           <height>23</height>
           </rect>
          </property>
          <property name="text">
@@ -889,10 +902,10 @@
         <widget class="QPushButton" name="retour4">
          <property name="geometry">
           <rect>
-           <x>350</x>
-           <y>140</y>
+           <x>420</x>
+           <y>110</y>
            <width>75</width>
-           <height>41</height>
+           <height>23</height>
           </rect>
          </property>
          <property name="text">
@@ -1072,7 +1085,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>923</width>
+     <width>800</width>
      <height>21</height>
     </rect>
    </property>
