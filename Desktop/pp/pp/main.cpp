@@ -4,7 +4,7 @@
 #include<QDebug>
 #include <QMessageBox>
 #include<QFile>
-#include<QTranslator>
+#include <QTranslator>
 #include<QInputDialog>
 int main(int argc, char *argv[])
 {QApplication a(argc, argv);
@@ -16,23 +16,35 @@ int main(int argc, char *argv[])
             styleSheetFile.open(QFile::ReadOnly);
             QString styleSheet=QLatin1String(styleSheetFile.readAll());
             a.setStyleSheet(styleSheet);
-
     connexion c;
-    QTranslator T ;
-    QStringList langs ;
-    langs <<"english"<<"frensh"<<"arabe";
-    const QString lang = QInputDialog :: getItem(NULL,"language","Select a language",langs);
-    if (lang == "english"){
-        T.load(":/new/prefix1/english.qm");
+    QTranslator t;
+    QStringList languages;
+    languages <<"French" <<"English" << "Arabe";
 
-    }else if(lang=="arabe")
-    { T.load(":/new/prefix1/arabe.qm");}
-    if (lang!= "frensh"){
-        a.installTranslator(&T)  ;}
+    const QString lang = QInputDialog::getItem(NULL,"Select language",
+                                         "language", languages);
+
+    if (lang == "English")
+    {
+        //t.load("C:/Qt/5.9.9/mingw53_32/translations/qtbase_en.qm");
+
+        t.load(":/anglais.qm");
+
+    }
+    else if (lang == "Arabe" )
+    {
+        t.load(":/arab.qm");
+    }
+    if(lang !="French"){
+        a.installTranslator(&t);
+    }
     bool test=c.createconnexion();
      MainWindow w;
 
-    if(test) QMessageBox::information(nullptr, QObject::tr("database is open"),QObject::tr("connexion reussite\n" "click OK to exist"),
+
+
+
+     if(test) QMessageBox::information(nullptr, QObject::tr("database is open"),QObject::tr("connexion reussite\n" "click OK to exist"),
                                        QMessageBox::Ok);
          //qDebug() <<"connexion reussite";
 

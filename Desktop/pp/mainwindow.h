@@ -16,6 +16,8 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void paintQR(QPainter &painter, const QSize sz, const QString &data, QColor fg);
+
 
 private slots:
 
@@ -63,9 +65,13 @@ private slots:
 
     void on_rechercher_qt_clicked();
 
-    void on_stat_clicked();
+   /* void on_stat_clicked();*/
 
     void on_pb_pdf_clicked();
+
+    void on_recher_nom_textEdited(const QString &arg1);
+
+    void on_QRCODE_customContextMenuRequested(const QPoint &pos);
 
 private:
     Ui::MainWindow *ui;

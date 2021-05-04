@@ -67,10 +67,6 @@ private slots:
 
     void on_pb_pdf_clicked();
 
-    void on_pb_pdf_2_clicked();
-
-    void on_modifier1_2_clicked();
-
 private:
     Ui::MainWindow *ui;
     reservation R;

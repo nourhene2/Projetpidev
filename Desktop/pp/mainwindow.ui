@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="page">
      <widget class="QPushButton" name="pushButton">
@@ -65,7 +65,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -637,7 +637,7 @@
          <rect>
           <x>60</x>
           <y>130</y>
-          <width>511</width>
+          <width>311</width>
           <height>161</height>
          </rect>
         </property>
@@ -813,6 +813,29 @@
         </property>
         <property name="text">
          <string>rechercher</string>
+        </property>
+       </widget>
+       <widget class="QRWidget" name="QRCODE" native="true">
+        <property name="geometry">
+         <rect>
+          <x>400</x>
+          <y>160</y>
+          <width>121</width>
+          <height>101</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_27">
+        <property name="geometry">
+         <rect>
+          <x>410</x>
+          <y>130</y>
+          <width>47</width>
+          <height>13</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>QRCODE</string>
         </property>
        </widget>
       </widget>
@@ -1098,6 +1121,14 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QRWidget</class>
+   <extends>QWidget</extends>
+   <header>qrwidget.hpp</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -57,7 +57,7 @@ bool commande::ajouter2()
 bool commande::supprimer2(int code)
 {
      QSqlQuery query;
-    query.prepare("Delete from COMMANDE where code=:code");
+    query.prepare("Delete from commande where code=:code");
     query.bindValue(":code", code);
 
    return query.exec();
@@ -81,7 +81,7 @@ bool commande::modifier2(int code,int prix,int cp,int qt,int num_telc,QString no
 {
 
     QSqlQuery query;
-    query.prepare("UPDATE COMMANDE set code=:code, prix=:prix, cp=:cp , qt=:qt , num_telc=:num_telc , nom=:nom , datc=:datc  WHERE code=:code");
+    query.prepare("UPDATE commande set code=:code, prix=:prix, cp=:cp , qt=:qt , num_telc=:num_telc , nom=:nom , datc=:datc  WHERE code=:code");
     query.bindValue(":code", code);
     query.bindValue(":prix", prix);
     query.bindValue(":cp", cp);

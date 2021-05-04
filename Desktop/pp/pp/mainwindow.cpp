@@ -263,7 +263,7 @@ void MainWindow::on_id_r3_textChanged(const QString &arg1)
                  ui->id_r3->clear();}
 }
 
-/*void MainWindow::on_id_r2_textChanged(const QString &arg1)
+void MainWindow::on_id_r2_textChanged(const QString &arg1)
 {
     QSqlQueryModel *model= new QSqlQueryModel();
             QSqlQuery   *query= new QSqlQuery();
@@ -278,7 +278,7 @@ void MainWindow::on_id_r3_textChanged(const QString &arg1)
 }
 
 
-/*void MainWindow::on_code2_textChanged(const QString &arg1)
+void MainWindow::on_code2_textChanged(const QString &arg1)
 {
     QSqlQueryModel *model= new QSqlQueryModel();
             QSqlQuery   *query= new QSqlQuery();
@@ -304,7 +304,7 @@ void MainWindow::on_code3_textChanged(const QString &arg1)
                                  QObject::tr("NO MATCH FOUND !.\n"
                                              "Click Cancel to exit."), QMessageBox::Cancel);
                  ui->code3->clear();}
-}*/
+}
 
 void MainWindow::on_rechercher_code_clicked()
 {
@@ -377,7 +377,7 @@ void MainWindow::on_rechercher_qt_clicked()
 }
 */
 
-/*void MainWindow::on_pb_pdf_clicked()
+void MainWindow::on_pb_pdf_clicked()
 {
     QPdfWriter pdf("C:/Users/User/Desktop/pp/pp/Pdfreservation.pdf");
                           QPainter painter(&pdf);
@@ -389,7 +389,7 @@ void MainWindow::on_rechercher_qt_clicked()
                               painter.setFont(QFont("Arial", 50));
                              // painter.drawText(1100,2000,afficheDC);
                               painter.drawRect(1500,200,7300,2600);
-                              painter.drawPixmap(QRect(100,700,600,600),QPixmap("C:/Users/User/Downloads/150123410_1102641506814079_4892972152459660250_n (1).png"));
+                              painter.drawPixmap(QRect(7600,70,2000,2600),QPixmap("C:/Users/User/Downloads/150123410_1102641506814079_4892972152459660250_n (1).png"));
                               painter.drawRect(0,3000,9600,500);
                               painter.setFont(QFont("Arial", 9));
                               painter.drawText(300,3300,"ID_R");
@@ -425,58 +425,4 @@ void MainWindow::on_rechercher_qt_clicked()
                                   {
                                        painter.end();
                                   }
-}*/
-void MainWindow::on_pb_pdf_2_clicked()
-{ QPdfWriter pdf("C:/Users/User/Desktop/pp/pp/Pdfreservation.pdf");
-    QPainter painter(&pdf);
-   int i = 4000;
-        painter.setPen(Qt::red);
-        painter.setFont(QFont("Arial", 30));
-        painter.drawText(2300,1200,"Liste Des Reservations");
-        painter.setPen(Qt::black);
-        painter.setFont(QFont("Arial", 50));
-       // painter.drawText(1100,2000,afficheDC);
-        painter.drawRect(1500,200,7300,2600);
-        painter.drawPixmap(QRect(100,700,600,600),QPixmap("C:/Users/User/Downloads/150123410_1102641506814079_4892972152459660250_n (1).png"));
-        painter.drawRect(0,3000,9600,500);
-        painter.setFont(QFont("Arial", 9));
-        painter.drawText(300,3300,"ID_R");
-        painter.drawText(2300,3300,"NBR_PR");
-        painter.drawText(4300,3300,"NUM_TEL");
-        painter.drawText(6300,3300,"DAT");
-
-
-
-
-        QSqlQuery query;
-        query.prepare("select * from RESERVATION");
-        query.exec();
-        while (query.next())
-        {
-            painter.drawText(300,i,query.value(0).toString());
-            painter.drawText(2300,i,query.value(1).toString());
-            painter.drawText(4300,i,query.value(2).toString());
-            painter.drawText(6300,i,query.value(3).toString());
-
-
-
-           i = i +500;
-        }
-        int reponse = QMessageBox::question(this, "Génerer PDF", "<PDF Enregistré>...Vous Voulez Affichez Le PDF ?", QMessageBox::Yes |  QMessageBox::No);
-            if (reponse == QMessageBox::Yes)
-            {
-                QDesktopServices::openUrl(QUrl::fromLocalFile("C:/Users/User/Desktop/pp/pp/Pdfreservation.pdf"));
-
-                painter.end();
-            }
-            if (reponse == QMessageBox::No)
-            {
-                 painter.end();
-            }
-
-}
-
-void MainWindow::on_modifier1_2_clicked()
-{
-
 }
