@@ -24,6 +24,10 @@ public class Evenement {
     
    public Evenement(){}
 
+    public Evenement(int id_e) {
+        this.id_e = id_e;
+    }
+
     public Evenement(String nom_e, String descp_e, int nbr_pers, int nbr_places, Date date_debut, Date date_fin) {
         this.nom_e = nom_e;
         this.descp_e = descp_e;

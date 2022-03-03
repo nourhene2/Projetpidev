@@ -34,6 +34,7 @@ public class ListPersonneCRUD {
            pst.executeUpdate();
              ClientCRUD c=new ClientCRUD()  ;       
           Client c1=  c.AfficherClient(p.getId_U()) ;
+            System.out.println(c1.getNb_fidelite()+1);
           c1.setNb_fidelite(c1.getNb_fidelite()+1);
           c.Modifier(c1);
             System.out.println("Element AJOUTEE!");

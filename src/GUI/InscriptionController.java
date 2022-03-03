@@ -5,15 +5,33 @@
  */
 package GUI;
 
+import edu.connexion3a15.entities.Client;
+import edu.connexion3a15.entities.Type;
+import edu.connexion3a15.services.ClientCRUD;
+import edu.connexion3a15.utils.MyConnexion;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.text.Text;
+
 
 /**
  * FXML Controller class
@@ -37,24 +55,179 @@ public class InscriptionController implements Initializable {
     @FXML
     private TextField tfprenom;
     @FXML
-    private ComboBox<?> tftype;
+    private ComboBox<String> tftype;
     @FXML
     private TextField tfnum_tel;
     @FXML
     private TextField tfemail;
     @FXML
-    private ComboBox<?> type;
+    private PasswordField tfmdp;
+    @FXML
+    private ComboBox<String> tff;
+    @FXML
+    private TableView<Client> vbox;
+    @FXML
+    private TableColumn<Client, Integer> colid;
+    @FXML
+    private TableColumn<Client, String> colnom;
+    @FXML
+    private TableColumn<Client, String> colprenom;
+    @FXML
+    private TableColumn<Client, String> colpassword;
+    @FXML
+    private TableColumn<Client, Integer> colnum;
+    @FXML
+    private TableColumn<Client, String> colemail;
+    @FXML
+    private TableColumn<Client, Type> coltype;
+    @FXML
+    private Button deletef;
+    @FXML
+    private Button updatef;
+    ClientCRUD hs = new ClientCRUD();
+    @FXML
+    private TableColumn<Client, Integer> colnb_fidelite;
+    public ObservableList<Client> data=FXCollections.observableArrayList();
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        tff.setPromptText("Les nom ");
+        ResultSet rs1 = null;
+        try {
+                Connection cnx = MyConnexion.getInstance().getCnx();
+                rs1 = cnx.createStatement().executeQuery("SELECT nom FROM Utilisateur");
+        } catch (SQLException ex) {
+                Logger.getLogger(InscriptionController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        try {
+                while (rs1.next()) {  // loop
+                    
+                    // Now add the comboBox addAll statement
+                    tff.getItems().addAll(rs1.getString("nom"));
+                    
+                }} catch (SQLException ex) {
+                    Logger.getLogger(InscriptionController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        
+        ObservableList<String> list = FXCollections.observableArrayList("Client","Nutritionnist","Coach");
+        tftype.setItems(list);
+        showClient();
     }    
 
+
     @FXML
-    private void SavePerson(ActionEvent event) {
+    private void Select(ActionEvent event) {
+        String s= tftype.getSelectionModel().getSelectedItem().toString();
     }
+
+    @FXML
+    private void SaveUser(ActionEvent event) {
+        int id = Integer.parseInt(tfid.getText());
+        String nom = tfnom.getText();
+        String prenom = tfprenom.getText();
+        String mdp = tfmdp.getText();
+        int num_tel = Integer.parseInt(tfnum_tel.getText());
+        String email = tfemail.getText();
+        String type = tftype.getValue();
+        
+        Client c= new Client(id, nom, prenom, mdp, num_tel, email, Type.Types.Client);
+        ClientCRUD c1 = new ClientCRUD();
+        c1.Ajouter(c);
+        updateTable2();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information");
+                alert.setHeaderText(null);
+                alert.setContentText("Client ajoutée");
+                
+                alert.showAndWait();
+        
+        
+    }
+
+    @FXML
+    private void Test(ActionEvent event) {
+    }
+
+    @FXML
+    private void click_deleteclient(ActionEvent event) {
+        int id= Integer.parseInt(tfid.getText());
+        ClientCRUD c1 = new ClientCRUD();
+       c1.Supprimer(id);
+       updateTable2();
+           showClient ();
+    }
+
+    @FXML
+    private void click_updateclient(ActionEvent event) {
     
+ int id = Integer.parseInt(tfid.getText());
+        String nom = tfnom.getText();
+        String prenom = tfprenom.getText();
+        String mdp = tfmdp.getText();
+        int num_tel = Integer.parseInt(tfnum_tel.getText());
+        String email = tfemail.getText();
+        String type = tftype.getValue();
+        
+        Client c= new Client(id, nom, prenom, mdp, num_tel, email, Type.Types.Client);
+        ClientCRUD c1 = new ClientCRUD();
+      
+        c1.Modifier(c);
+     updateTable2();
+      tfid.setText("");
+        tfnom.setText(""); 
+        tfprenom.setText("");
+        tfmdp.setText("");
+        tfnum_tel.setText(""); 
+        tfemail.setText(""); 
+        tftype.setValue(""); 
+        showClient();
+            
+      Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Success");
+        alert.setContentText("Client is updated successfully!");
+        alert.show();
+        
+    }
+     public void showClient (){
+         
+         try { 
+            String requete="SELECT * FROM Client";
+            Statement st = MyConnexion.getInstance().getCnx().createStatement();
+            ResultSet rs= st.executeQuery(requete);
+            while(rs.next()){
+               
+                data.add(new Client(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getString(6),Type.find(rs.getString(6))));
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());}
+        
+         
+        ClientCRUD c1 = new ClientCRUD();
+      ObservableList<Client> list = c1.Afficher();
+      colid.setCellValueFactory(new PropertyValueFactory<Client,Integer>("id"));
+      
+      colnom.setCellValueFactory(new PropertyValueFactory<Client,String>("nom"));
+      colprenom.setCellValueFactory(new PropertyValueFactory<Client,String>("prenom"));
+      colpassword.setCellValueFactory(new PropertyValueFactory<Client,String>("mdp"));
+      colnum.setCellValueFactory(new PropertyValueFactory<Client,Integer>("num_tel"));
+      colemail.setCellValueFactory(new PropertyValueFactory<Client,String>("email"));
+      coltype.setCellValueFactory(new PropertyValueFactory<Client,Type>("type"));
+      colnb_fidelite.setCellValueFactory(new PropertyValueFactory<Client,Integer>("nb_fidelite"));
+      vbox.setItems(list);
+    }
+     
+     ObservableList<Client> Client ;
+     MyConnexion cnx = null;
+     Statement st = null;
+     ClientCRUD c = new ClientCRUD();
+     
+     
+     
+    public void updateTable2(){
+        Client = c.Afficher();
+        vbox.getItems().setAll(Client);
+    }
 }

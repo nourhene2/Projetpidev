@@ -12,6 +12,7 @@ import edu.connexion3a15.entities.ListPersonne;
 import edu.connexion3a15.entities.Personne;
 import edu.connexion3a15.entities.Reservation;
 import edu.connexion3a15.entities.Type;
+import edu.connexion3a15.entities.Utilisateur;
 import edu.connexion3a15.services.ClientCRUD;
 import edu.connexion3a15.services.CoachCrud;
 import edu.connexion3a15.services.EvenementCRUD;
@@ -19,6 +20,7 @@ import edu.connexion3a15.services.ListPersonneCRUD;
 import edu.connexion3a15.services.PersonneCRUD;
 import edu.connexion3a15.services.ReservationCRUD;
 import edu.connexion3a15.utils.MyConnexion;
+//import java.util.Date;
 import java.sql.Date;
 
 /**
@@ -35,25 +37,25 @@ public  class MainClass {
 //        System.out.println(P.listerPersonne());
         
        // P.ajouterPersonne();
-       Client c = new Client(1, 0, "nourhene", "liheouel", 97427003, "nourhene.liheouel@esprit.tn", Type.Client);
+       //Client c = new Client(1, 0, "nourhene", "liheouel", 97427003, "nourhene.liheouel@esprit.tn", Type.Client);
         Evenement e = new Evenement(0, "nn", "nn", 0, 5, new Date(20200103), new Date(20200103));
         EvenementCRUD e1 = new EvenementCRUD();
         e1.Ajouter(e);
-        ListPersonne l = new ListPersonne(0, 4, 1);
+        ListPersonne l = new ListPersonne(0, 11, 1);
         ListPersonneCRUD l1 = new ListPersonneCRUD();
         l1.ajouterPersonne2(l);
-//       Client c3 = new Client(8,8,"nour","kammoun",97427003,"nour.kammoun@esprit.tn");
-//       Client c4 = new Client(8,16,"mehdi","kammoun",97427003,"nour.kammoun@esprit.tn");
+//       Client c3 = new Client(0, "f", "f", 0, "f", Type.Types.Client, "ff");
+        Client c4 = new Client(0, 11, "n", "r", "f", 0, "f", Type.Types.nutritionniste);
        ClientCRUD c1= new ClientCRUD();
-       //c1.Ajouter(c4);
+//       //c1.Ajouter(c4);
 //       c1.Ajouter(c);
-       //c1.Supprimer(3);
-//       c1.Modifier( c3);
+//       c1.Supprimer(4);
+     c1.Modifier(c4);
 //      System.out.println(c1.Afficher());
-//        Reservation R=new Reservation(1, 10, 9, new Date());
-//        Reservation R2=new Reservation(2, 4, 7, new Date());
-//        ReservationCRUD R1 = new  ReservationCRUD();
-//        //R1.Ajouter(R);
+       //  Reservation R=new Reservation(1,new Utilisateur(11), new Evenement(1), new Date());
+        Reservation R2=new Reservation();
+        ReservationCRUD R1 = new  ReservationCRUD();
+//        R1.Ajouter(R);
 ////        
 //        R1.Supprimer(4);
 ////        System.out.println(R1.Afficher());

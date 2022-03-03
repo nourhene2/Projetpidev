@@ -18,10 +18,6 @@ public class Coach extends Utilisateur{
         this.specialite_co = specialite_co;
     }
 
-    public Coach(String specialite_co, int id, String nom, String prenom, int num_tel, String email,Type type) {
-        super(id, nom, prenom, num_tel, email,type);
-        this.specialite_co = specialite_co;
-    }
 
     public Coach() {
     }

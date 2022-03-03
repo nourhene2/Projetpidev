@@ -6,7 +6,9 @@
 package edu.connexion3a15.services;
 
 import edu.connexion3a15.entities.Client;
+import edu.connexion3a15.entities.Evenement;
 import edu.connexion3a15.entities.Reservation;
+import edu.connexion3a15.entities.Utilisateur;
 import edu.connexion3a15.utils.MyConnexion;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -15,6 +17,8 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 /**
  *
  * @author USER
@@ -27,8 +31,8 @@ public class ReservationCRUD implements Utilisateur_CRUD<Reservation>{
     try {
             String requete = "INSERT INTO Reservation (id_U,id_E,Date)VALUES(?,?,?)" ;
             PreparedStatement pst= MyConnexion.getInstance().getCnx().prepareStatement(requete);
-              pst.setInt(1,t.getId_U());
-            pst.setInt(2,t.getId_E());
+              pst.setInt(1,t.getUser().getId());
+            pst.setInt(2,t.getEvents().getId_e());
             pst.setDate(3,new Date(t.getDate().getTime()));
            
            pst.executeUpdate();
@@ -57,7 +61,7 @@ try {
             String requete5 =" UPDATE reservation SET " + " id_E=? "+" ,date= ? WHERE id = ?";
             
             PreparedStatement pst =MyConnexion.getInstance().getCnx().prepareStatement(requete5);
-              pst.setInt(1,t.getId_E()); 
+              pst.setInt(1,t.getEvents().getId_e()); 
             pst.setInt(3,t.getId());
           
             pst.setDate(2,new Date(t.getDate().getTime()));
@@ -82,8 +86,8 @@ try {
             while(rs.next()){
             Reservation r = new Reservation();
             r.setId(rs.getInt(1));
-            r.setId_U(rs.getInt("id_U"));
-            r.setId_E(rs.getInt("id_E"));
+            r.setUser(new Utilisateur(rs.getInt(2)));
+            r.setEvents (new Evenement(rs.getInt(3)));
             r.setDate(rs.getDate("Date"));
             myList.add(r);
             }
@@ -94,6 +98,28 @@ try {
         }
         return myList;
         }
+    
+     public ObservableList filecombBox()
+    {
+         ObservableList<Integer> list3 =FXCollections.observableArrayList();
+             
+      try {
+            String req = "select *from utilisateur ";
+            PreparedStatement ps = MyConnexion.getInstance().getCnx().prepareStatement(req);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                list3.add(rs.getInt("id"));
+                 
+            
+            }
+          
+    
+    }   catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+    }
+     return list3;
+     
+    }
     }
     
 

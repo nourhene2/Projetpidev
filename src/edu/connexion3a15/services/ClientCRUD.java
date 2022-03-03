@@ -9,6 +9,7 @@ import edu.connexion3a15.utils.MyConnexion;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import edu.connexion3a15.entities.Client;
+import edu.connexion3a15.entities.Type;
 import edu.connexion3a15.entities.Utilisateur;
 import edu.connexion3a15.utils.MyConnexion;
 import java.sql.PreparedStatement;
@@ -18,8 +19,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import static java.util.Collections.list;
 import java.util.List;
+import java.util.Observable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 /**
  *
  * @author USER
@@ -30,20 +34,23 @@ public class ClientCRUD implements Utilisateur_CRUD <Client> {
     public void Ajouter(Client t) {
        try {
             String requete = "INSERT INTO Client (nb_fidelite)VALUES(?)" ;
-            String requete2 ="INSERT INTO utilisateur (nom,prenom,num_tel,email)VALUES(?,?,?,?)";
+            String requete2 ="INSERT INTO utilisateur (nom,prenom,mdp,num_tel,email,type)VALUES(?,?,?,?,?,?)";
             PreparedStatement pst= MyConnexion.getInstance().getCnx().prepareStatement(requete);
             PreparedStatement pst1= MyConnexion.getInstance().getCnx().prepareStatement(requete2);
             pst.setInt(1,t.getNb_fidelite());
             pst1.setString(1,t.getNom());
             pst1.setString(2,t.getPrenom());
-            pst1.setInt(3,t.getNum_tel());
-            pst1.setString(4,t.getEmail());
+            pst1.setString(3,t.getMdp());
+            pst1.setInt(4,t.getNum_tel());
+            pst1.setString(5,t.getEmail());
+            pst1.setString(6 ,t.getType().toString());
+            
             
            pst1.executeUpdate();
            pst.executeUpdate();
            
            
-            System.out.println("Element AJOUTEE!");
+            System.out.println("Client AJOUTEE!");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
@@ -58,7 +65,7 @@ public class ClientCRUD implements Utilisateur_CRUD <Client> {
             PreparedStatement pst =MyConnexion.getInstance().getCnx().prepareStatement(requete3);
             PreparedStatement pst1 =MyConnexion.getInstance().getCnx().prepareStatement(requete4);
             pst.setInt(1, id);
-            pst1.setInt(2, id);
+            pst1.setInt(1, id);
             
               pst.executeUpdate();
               pst1.executeUpdate();
@@ -73,8 +80,8 @@ public class ClientCRUD implements Utilisateur_CRUD <Client> {
     public void Modifier(Client t) {
         
         try {
-            String requete5 =" UPDATE Client SET " + " nb_fidelite= ? WHERE id = ?";
-            String requete6 =" UPDATE Utilisateur SET " + " nom= ?,prenom= ?,num_tel=?,email=?  WHERE id = ?";
+            String requete5 =" UPDATE Client SET " + " nb_fidelite=? WHERE id = ?";
+            String requete6 =" UPDATE Utilisateur SET " + " nom= ?,prenom= ?,mdp= ?,num_tel=?,email=? ,type=? WHERE id = ?";
             
             PreparedStatement pst =MyConnexion.getInstance().getCnx().prepareStatement(requete5);
             PreparedStatement pst1 =MyConnexion.getInstance().getCnx().prepareStatement(requete6);
@@ -82,12 +89,16 @@ public class ClientCRUD implements Utilisateur_CRUD <Client> {
             pst.setInt(2,t.getId());
             pst1.setString(1,t.getNom());
             pst1.setString(2,t.getPrenom());
-            pst1.setInt(3,t.getNum_tel());
-            pst1.setString(4,t.getEmail());
-             pst1.setInt(5,t.getId());
+            pst1.setString(3,t.getMdp());
+            
+            pst1.setInt(4,t.getNum_tel());
+            pst1.setString(5,t.getEmail());
+        
+             pst1.setString(6 ,t.getType().toString());
+             pst1.setInt(7, t.getId());
             pst.executeUpdate();
             pst1.executeUpdate();
-            System.out.println("client  modifiee");
+            System.out.println(t.getNb_fidelite());
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
@@ -96,8 +107,8 @@ public class ClientCRUD implements Utilisateur_CRUD <Client> {
 
 
     @Override
-    public List<Client> Afficher() {
-       List<Client> myList = new ArrayList<>();
+    public ObservableList<Client> Afficher() {
+       ObservableList<Client> myList = FXCollections.observableArrayList();
         try {
             
             String requete7 = "SELECT * FROM utilisateur";
@@ -109,9 +120,18 @@ public class ClientCRUD implements Utilisateur_CRUD <Client> {
                F.setId(rs.getInt("id"));
                F.setNom(rs.getString("nom"));
                F.setPrenom(rs.getString("prenom"));
+               F.setMdp(rs.getString("mdp"));
                F.setNum_tel(rs.getInt("num_tel"));
                F.setEmail(rs.getString("email"));
-               
+              
+               if(rs.getString("type").toString().compareTo("Client")==0){
+              F.setType(Type.Types.Client);}
+              else if(rs.getString("type").toString().compareTo("nutritionniste")==0){
+                F.setType(Type.Types.coach);  
+              }
+              else{
+                F.setType(Type.Types.coach);      
+                      }
                String requete8 = "SELECT nb_fidelite FROM client WHERE id="+F.getId();
                Statement st1 = MyConnexion.getInstance().getCnx().createStatement();
            ResultSet rs1 = st1.executeQuery(requete8);
@@ -147,9 +167,19 @@ public class ClientCRUD implements Utilisateur_CRUD <Client> {
                F.setId(rs.getInt("id"));
                F.setNom(rs.getString("nom"));
                F.setPrenom(rs.getString("prenom"));
+               F.setMdp(rs.getString("mdp"));
                F.setNum_tel(rs.getInt("num_tel"));
                F.setEmail(rs.getString("email"));
-              F.setNb_fidelite(rs1.getInt("nb_fidelite"));
+if(rs.getString("type").toString().compareTo("Client")==0){
+              F.setType(Type.Types.Client);}
+              else if(rs.getString("type").toString().compareTo("nutritionniste")==0){
+                F.setType(Type.Types.coach);  
+              }
+              else{
+                F.setType(Type.Types.coach);      
+                      }  
+
+             F.setNb_fidelite(rs1.getInt("nb_fidelite"));
     
            return F;
                

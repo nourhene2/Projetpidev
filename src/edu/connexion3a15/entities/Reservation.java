@@ -13,32 +13,19 @@ import java.util.Date;
  */
 public class Reservation {
     private int id;
-    private int id_U;
-    private int id_E;
+    private Utilisateur user;
+    private Evenement events ;
     private Date Date ;
 
     public Reservation() {
     }
 
-    public Reservation(int id, int id_U, int id_E, Date Date) {
-        this.id = id;
-        this.id_U = id_U;
-        this.id_E = id_E;
-        this.Date = Date;
-    }
-
+   
     public int getId() {
         return id;
     }
 
-    public int getId_U() {
-        return id_U;
-    }
-
-    public int getId_E() {
-        return id_E;
-    }
-
+    
     public Date getDate() {
         return Date;
     }
@@ -47,21 +34,40 @@ public class Reservation {
         this.id = id;
     }
 
-    public void setId_U(int id_U) {
-        this.id_U = id_U;
-    }
-
-    public void setId_E(int id_E) {
-        this.id_E = id_E;
-    }
-
+   
+    
     public void setDate(Date Date) {
         this.Date = Date;
     }
 
+    public Reservation(int id, Utilisateur user, Evenement events, Date Date) {
+        this.id = id;
+        this.user = user;
+        this.events = events;
+        this.Date = Date;
+    }
+
+    public Utilisateur getUser() {
+        return user;
+    }
+
+    public Evenement getEvents() {
+        return events;
+    }
+
+    public void setUser(Utilisateur user) {
+        this.user = user;
+    }
+
+    public void setEvents(Evenement events) {
+        this.events = events;
+    }
+
     @Override
     public String toString() {
-        return "Reservation{" + "id=" + id + ", id_U=" + id_U + ", id_E=" + id_E + ", Date=" + Date + '}';
+        return "Reservation{" + "id=" + id + ", user=" + user.getId() + ", events=" + events.getId_e()+ ", Date=" + Date + '}';
     }
+
+    
     
 }

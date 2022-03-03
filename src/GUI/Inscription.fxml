@@ -3,40 +3,55 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.text.Text?>
-<?import javafx.collections.FXCollections?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.InscriptionController">
+<AnchorPane id="AnchorPane" prefHeight="573.0" prefWidth="721.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.InscriptionController">
    <children>
-      <Label layoutX="142.0" layoutY="56.0" text="Id" />
-      <Label layoutX="148.0" layoutY="105.0" text="nom" />
-      <Label layoutX="148.0" layoutY="146.0" text="prenom" />
       <Text fx:id="tfId" layoutX="222.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <Text fx:id="tfNom" layoutX="222.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" />
       <Text fx:id="tfPrenom" layoutX="222.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Button fx:id="vtnvalider" layoutX="329.0" layoutY="332.0" mnemonicParsing="false" onAction="#SavePerson" text="Valider" />
-      <TextField fx:id="tfid" layoutX="233.0" layoutY="52.0" />
-      <TextField fx:id="tfnom" layoutX="233.0" layoutY="101.0" />
-      <TextField fx:id="tfprenom" layoutX="233.0" layoutY="142.0" />
-      <Label layoutX="147.0" layoutY="192.0" text="num_tel" />
-      <Label layoutX="147.0" layoutY="234.0" text="email" />
-     <ComboBox fx:id="tftype" layoutX="234.0" layoutY="283.0" prefWidth="150.0" />
-       
-      <items>
-        <FXCollections fx:factory="observableArrayList">
-          <String fx:value="client " />
-          <String fx:value="nutritioniste" />
-          <String fx:value="coach" />
-        </FXCollections>
-      </items>
-    </ComboBox>
-     
-    <Label layoutX="147.0" layoutY="287.0" text="type" />
-      <TextField fx:id="tfnum_tel" layoutX="234.0" layoutY="188.0" />
-      <TextField fx:id="tfemail" layoutX="234.0" layoutY="222.0" />
+      <Button fx:id="vtnvalider" layoutX="142.0" layoutY="383.0" mnemonicParsing="false" onAction="#SaveUser" text="Valider" />
+      <Label layoutX="408.0" layoutY="56.0" />
+      <ComboBox fx:id="tff" layoutX="609.0" layoutY="491.0" onAction="#Test" prefWidth="150.0" />
+      <VBox layoutX="8.0" layoutY="7.0" prefHeight="366.0" prefWidth="163.0">
+         <children>
+            <Label text="Id" />
+            <TextField fx:id="tfid" prefHeight="25.0" prefWidth="195.0" />
+            <Label text="nom" />
+            <TextField fx:id="tfnom" />
+            <Label text="prenom" />
+            <TextField fx:id="tfprenom" />
+            <Label text="password" />
+            <PasswordField fx:id="tfmdp" />
+            <Label text="num_tel" />
+            <TextField fx:id="tfnum_tel" />
+            <Label text="email" />
+            <TextField fx:id="tfemail" />
+            
+           
+          <Label text="type" />
+           <ComboBox fx:id="tftype" onAction="#Select" prefWidth="150.0" />
+         </children>
+      </VBox>
+      <Button fx:id="deletef" layoutX="256.0" layoutY="383.0" mnemonicParsing="false" onAction="#click_deleteclient" text="DELETE" />
+      <Button fx:id="updatef" layoutX="365.0" layoutY="383.0" mnemonicParsing="false" onAction="#click_updateclient" text="UPDATE" />
+      <TableView fx:id="vbox" layoutX="192.0" layoutY="19.0" prefHeight="271.0" prefWidth="596.0">
+        <columns>
+          <TableColumn fx:id="colid" prefWidth="75.0" text="id" />
+          <TableColumn fx:id="colnom" prefWidth="75.0" text="nom" />
+            <TableColumn fx:id="colprenom" prefWidth="75.0" text="prenom" />
+            <TableColumn fx:id="colpassword" prefWidth="75.0" text="password" />
+            <TableColumn fx:id="colnum" prefWidth="75.0" text="num_tel" />
+            <TableColumn fx:id="colemail" prefWidth="75.0" text="email" />
+            <TableColumn fx:id="coltype" prefWidth="75.0" text="type" />
+            <TableColumn fx:id="colnb_fidelite" prefWidth="75.0" text="nb_fidelite" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>

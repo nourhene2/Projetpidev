@@ -5,10 +5,24 @@
  */
 package edu.connexion3a15.entities;
 
+import java.util.EnumSet;
+
 /**
  *
  * @author USER
  */
-public enum Type {
-    Client,nutritionniste,coach;
+public class Type {
+    // Client,nutritionniste,coach;
+     public enum Types{
+        Client,nutritionniste,coach;
+    }
+    public static Types find(String abbr){
+ 
+    for(Types v :EnumSet.allOf(Type.Types.class)){
+        if( v.toString().equals(abbr)){
+            return v;
+        }
+    }
+    return null;
+}
 }

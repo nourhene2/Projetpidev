@@ -24,14 +24,14 @@ public class FirstWindow extends Application {
     
      @Override
     public void start(Stage primaryStage) {
-        try {
+        try { 
             Parent root=
-                    FXMLLoader.load(getClass().getResource("Inscription.fxml"));
+                    FXMLLoader.load(getClass().getResource("Admin.fxml"));
            
             Scene scene = new Scene(root);
          
            
-            primaryStage.setTitle("Hello World!");
+            primaryStage.setTitle("Inscription");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {
