@@ -26,12 +26,12 @@ public class FirstWindow extends Application {
     public void start(Stage primaryStage) {
         try { 
             Parent root=
-                    FXMLLoader.load(getClass().getResource("Admin.fxml"));
+                    FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
            
             Scene scene = new Scene(root);
          
-           
-            primaryStage.setTitle("Inscription");
+            
+            primaryStage.setTitle("Admin");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {

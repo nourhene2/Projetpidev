@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="GUI.AfficherReservationController">
+   <children>
+      <TableView fx:id="vbox" layoutY="10.0" prefHeight="335.0" prefWidth="449.0">
+        <columns>
+          <TableColumn fx:id="colnom" prefWidth="75.0" text="nom_user" />
+          <TableColumn fx:id="colevents" prefWidth="75.0" text="nom_events" />
+            <TableColumn fx:id="col_tel" prefWidth="75.0" text="tel_cl" />
+            <TableColumn fx:id="colemail" prefWidth="75.0" text="email" />
+            <TableColumn fx:id="colDate" prefWidth="75.0" text="Date" />
+            <TableColumn fx:id="colType" prefWidth="75.0" text="Type" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

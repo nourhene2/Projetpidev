@@ -15,22 +15,19 @@ public class Client extends Utilisateur {
     private int nb_fidelite;
     //public static Evenement e;
 
-    public Client( int id, String nom, String prenom, String mdp, int num_tel, String email, Type.Types type) {
-        super(id, nom, prenom, mdp, num_tel, email, type);
+    public Client( int id, String nom, String prenom, String mdp, String email, String type) {
+        super(id, nom, prenom, mdp, email, type);
        // this.nb_fidelite = nb_fidelite;
     }
 
    
 
-    public Client(int nb_fidelite,int id, String nom, String prenom, String mdp, int num_tel, String email, Type.Types type) {
-        super(id, nom, prenom, mdp, num_tel, email, type);
+    public Client(int nb_fidelite,int id, String nom, String prenom, String mdp, String email, String type) {
+        super(id, nom, prenom, mdp,  email, type);
         this.nb_fidelite = nb_fidelite;
     }
 
-    public Client(int nb_fidelite, String nom, String prenom, int num_tel, String email, Type.Types type, String mdp) {
-        super(nom, prenom, num_tel, email, type, mdp);
-        this.nb_fidelite = nb_fidelite;
-    }
+    
 
     public Client(int nb_fidelite) {
         this.nb_fidelite = nb_fidelite;

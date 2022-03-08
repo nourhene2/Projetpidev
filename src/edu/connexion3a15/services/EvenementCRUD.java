@@ -5,7 +5,9 @@
  */
 package edu.connexion3a15.services;
 
+import edu.connexion3a15.entities.Client;
 import edu.connexion3a15.entities.Evenement;
+import edu.connexion3a15.entities.Utilisateur;
 import edu.connexion3a15.utils.MyConnexion;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -20,6 +22,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.ObservableListBase;
 
 /**
  *
@@ -102,6 +107,31 @@ public class EvenementCRUD implements Utilisateur_CRUD<Evenement>{
         } catch (SQLException ex) {
             System.err.println(ex.getMessage());
         }
+    }
+     
+    
+    public ObservableList<Utilisateur> Afficher2(int id ) {
+        ObservableList<Utilisateur> myList = FXCollections.observableArrayList();
+        try {
+
+            String requete2 = "Select Utilisateur.nom FROM evenements,Utilisateur,Reservation WHERE Utilisateur.id=Resevation.id_U&&evenements.id_e=reservation.id_e=?";
+            PreparedStatement pst =MyConnexion.getInstance().getCnx().prepareStatement(requete2);
+            
+            pst.setInt(1,id);
+            ResultSet rs = pst.executeQuery(requete2);
+            
+            rs.next();
+            Utilisateur Utilisateur = new Utilisateur(rs.getString(2));
+                   myList.add(Utilisateur);
+           
+          
+                
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+
+        }
+        return myList;
     }
                 
 

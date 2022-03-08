@@ -4,54 +4,73 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="573.0" prefWidth="721.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.InscriptionController">
+<AnchorPane id="AnchorPane" prefHeight="573.0" prefWidth="721.0" style="-fx-background-color: #F2E2D3;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.InscriptionController">
    <children>
       <Text fx:id="tfId" layoutX="222.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text fx:id="tfNom" layoutX="222.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Text fx:id="tfPrenom" layoutX="222.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" />
-      <Button fx:id="vtnvalider" layoutX="142.0" layoutY="383.0" mnemonicParsing="false" onAction="#SaveUser" text="Valider" />
+      <Text fx:id="tfNom" layoutX="220.0" layoutY="122.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Text fx:id="tfPrenom" layoutX="220.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+      <Button fx:id="vtnvalider" layoutX="402.0" layoutY="307.0" mnemonicParsing="false" onAction="#SaveUser" prefHeight="25.0" prefWidth="70.0" text="ajouter" textFill="#ee2121">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Button>
       <Label layoutX="408.0" layoutY="56.0" />
-      <ComboBox fx:id="tff" layoutX="609.0" layoutY="491.0" onAction="#Test" prefWidth="150.0" />
-      <VBox layoutX="8.0" layoutY="7.0" prefHeight="366.0" prefWidth="163.0">
-         <children>
-            <Label text="Id" />
-            <TextField fx:id="tfid" prefHeight="25.0" prefWidth="195.0" />
-            <Label text="nom" />
-            <TextField fx:id="tfnom" />
-            <Label text="prenom" />
-            <TextField fx:id="tfprenom" />
-            <Label text="password" />
-            <PasswordField fx:id="tfmdp" />
-            <Label text="num_tel" />
-            <TextField fx:id="tfnum_tel" />
-            <Label text="email" />
-            <TextField fx:id="tfemail" />
-            
-           
-          <Label text="type" />
-           <ComboBox fx:id="tftype" onAction="#Select" prefWidth="150.0" />
-         </children>
-      </VBox>
-      <Button fx:id="deletef" layoutX="256.0" layoutY="383.0" mnemonicParsing="false" onAction="#click_deleteclient" text="DELETE" />
-      <Button fx:id="updatef" layoutX="365.0" layoutY="383.0" mnemonicParsing="false" onAction="#click_updateclient" text="UPDATE" />
-      <TableView fx:id="vbox" layoutX="192.0" layoutY="19.0" prefHeight="271.0" prefWidth="596.0">
+      <Button fx:id="deletef" layoutX="213.0" layoutY="307.0" mnemonicParsing="false" onAction="#click_deleteclient" text="supprimer" textFill="#da1e1e">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="updatef" layoutX="307.0" layoutY="307.0" mnemonicParsing="false" onAction="#click_updateclient" prefHeight="25.0" prefWidth="70.0" text="modifier" textFill="#f21717">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <TableView fx:id="vbox" layoutX="67.0" layoutY="400.0" prefHeight="159.0" prefWidth="600.0">
         <columns>
           <TableColumn fx:id="colid" prefWidth="75.0" text="id" />
           <TableColumn fx:id="colnom" prefWidth="75.0" text="nom" />
-            <TableColumn fx:id="colprenom" prefWidth="75.0" text="prenom" />
             <TableColumn fx:id="colpassword" prefWidth="75.0" text="password" />
             <TableColumn fx:id="colnum" prefWidth="75.0" text="num_tel" />
             <TableColumn fx:id="colemail" prefWidth="75.0" text="email" />
             <TableColumn fx:id="coltype" prefWidth="75.0" text="type" />
             <TableColumn fx:id="colnb_fidelite" prefWidth="75.0" text="nb_fidelite" />
+            <TableColumn fx:id="colprenom" prefWidth="75.0" text="prenom" />
         </columns>
       </TableView>
+      <TextField fx:id="tfnom" layoutX="148.0" layoutY="168.0" />
+      <PasswordField fx:id="tfmdp" layoutX="500.0" layoutY="160.0" />
+      <TextField fx:id="tfemail" layoutX="500.0" layoutY="204.0" />
+     <ComboBox fx:id="tftype" layoutX="500.0" layoutY="243.0" onAction="#Select" prefWidth="150.0" />
+      <TextField fx:id="tfprenom" layoutX="149.0" layoutY="208.0" />
+      <TextField fx:id="tfnum_tel" layoutX="149.0" layoutY="246.0" />
+      <Label layoutX="60.0" layoutY="216.0" text="prenom" />
+      <Label layoutX="69.0" layoutY="172.0" text="nom" />
+      <Label layoutX="385.0" layoutY="172.0" text="mots de passe" />
+      <Label layoutX="24.0" layoutY="250.0" text="numero de telephone" />
+      
+           
+    <Label layoutX="411.0" layoutY="247.0" text="type" />
+      <Label layoutX="389.0" layoutY="208.0" text="adresse E_mail" />
+      <Label layoutX="289.0" layoutY="358.0" text="Liste des utilisateurs" textFill="#072857">
+         <font>
+            <Font name="System Italic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="126.0" layoutY="37.0" text="Gestion des utilisateurs " textFill="#130c36">
+         <font>
+            <Font name="Arial Black" size="36.0" />
+         </font>
+      </Label>
+      <Separator layoutX="346.0" layoutY="155.0" orientation="VERTICAL" prefHeight="123.0" prefWidth="11.0" />
+      <Separator layoutX="267.0" layoutY="384.0" prefWidth="200.0" />
+      <Separator layoutX="49.0" layoutY="345.0" prefHeight="3.0" prefWidth="628.0" />
+      <Button fx:id="exit" layoutX="667.0" layoutY="14.0" mnemonicParsing="false" onAction="#exit" prefHeight="25.0" prefWidth="42.0" text="Exit" />
    </children>
 </AnchorPane>

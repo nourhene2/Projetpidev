@@ -12,26 +12,31 @@ public  class Utilisateur {
     private int id;
     private String nom;
     private String prenom;
-    private int num_tel;
+ 
     private String email;
-    private Type.Types type;
+    private String type;
     private String mdp;
-    public Utilisateur(int id, String nom, String prenom,String mdp ,int num_tel, String email,Type.Types type) {
+    public Utilisateur(int id, String nom, String prenom,String mdp , String email,String type) {
         this.id = id;
         this.nom = nom;
         this.prenom = prenom;
         this.mdp=mdp;
-        this.num_tel = num_tel;
+        
         this.email = email;
         this.type=type;
         
         
     }
 
-    public Utilisateur(String nom, String prenom, int num_tel, String email, Type.Types type, String mdp) {
+    public Utilisateur(String nom) {
+        this.nom = nom;
+    }
+    
+
+    public Utilisateur(String nom, String prenom, String email, String type, String mdp) {
         this.nom = nom;
         this.prenom = prenom;
-        this.num_tel = num_tel;
+        
         this.email = email;
         this.type = type;
         this.mdp = mdp;
@@ -57,9 +62,7 @@ public  class Utilisateur {
         return prenom;
     }
 
-    public int getNum_tel() {
-        return num_tel;
-    }
+    
 
     public String getEmail() {
         return email;
@@ -77,9 +80,6 @@ public  class Utilisateur {
         this.prenom = prenom;
     }
 
-    public void setNum_tel(int num_tel) {
-        this.num_tel = num_tel;
-    }
 
     public void setEmail(String email) {
         this.email = email;
@@ -88,11 +88,11 @@ public  class Utilisateur {
     public Type getType(Type type) {
         return type;
     }
-  public Type.Types getType() {
+  public String getType() {
         return type;
     }
 
-    public void setType(Type.Types type) {
+    public void setType(String type) {
         this.type = type;
     }
 
@@ -108,8 +108,10 @@ public  class Utilisateur {
 
     @Override
     public String toString() {
-        return "Utilisateur{" + "id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", num_tel=" + num_tel + ", email=" + email + ", type=" + type + ", mdp=" + mdp + '}';
+        return "Utilisateur{" + "id=" + id + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", type=" + type + ", mdp=" + mdp + '}';
     }
+
+    
 
     
 

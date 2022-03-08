@@ -13,10 +13,71 @@ import java.util.Date;
  */
 public class Reservation {
     private int id;
-    private Utilisateur user;
-    private Evenement events ;
+ private int id_U;
+   
+    private String nom;
+    private String nom_e;
+  
     private Date Date ;
 
+   
+
+    public int getId_U() {
+        return id_U;
+    }
+
+    public void setId_U(int id_U) {
+        this.id_U = id_U;
+    }
+
+    public Reservation(int id, int id_U, String nom, String nom_e, Date Date) {
+        this.id = id;
+        this.id_U = id_U;
+        this.nom = nom;
+        this.nom_e = nom_e;
+        
+        this.Date = Date;
+    }
+
+    public Reservation(int id, String nom, String nom_e) {
+        this.id = id;
+        this.nom = nom;
+        this.nom_e = nom_e;
+        
+    }
+    
+
+   
+    
+
+    public Reservation( String nom, String nom_e,Date Date) {
+     
+        this.Date = Date;
+        this.nom = nom;
+        this.nom_e = nom_e;
+        
+    }
+
+    
+   
+
+    public String getNom() {
+        return nom;
+    }
+
+    public String getNom_e() {
+        return nom_e;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setNom_e(String nom_e) {
+        this.nom_e = nom_e;
+    }
+
+    
     public Reservation() {
     }
 
@@ -40,33 +101,16 @@ public class Reservation {
         this.Date = Date;
     }
 
-    public Reservation(int id, Utilisateur user, Evenement events, Date Date) {
-        this.id = id;
-        this.user = user;
-        this.events = events;
-        this.Date = Date;
-    }
-
-    public Utilisateur getUser() {
-        return user;
-    }
-
-    public Evenement getEvents() {
-        return events;
-    }
-
-    public void setUser(Utilisateur user) {
-        this.user = user;
-    }
-
-    public void setEvents(Evenement events) {
-        this.events = events;
-    }
-
     @Override
     public String toString() {
-        return "Reservation{" + "id=" + id + ", user=" + user.getId() + ", events=" + events.getId_e()+ ", Date=" + Date + '}';
+        return "Reservation{" + "id=" + id + ", id_U=" + id_U + ", nom=" + nom + ", nom_e=" + nom_e + ", Date=" + Date + '}';
     }
+
+    
+
+   
+   
+    
 
     
     

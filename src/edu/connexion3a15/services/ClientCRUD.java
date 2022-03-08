@@ -34,16 +34,16 @@ public class ClientCRUD implements Utilisateur_CRUD <Client> {
     public void Ajouter(Client t) {
        try {
             String requete = "INSERT INTO Client (nb_fidelite)VALUES(?)" ;
-            String requete2 ="INSERT INTO utilisateur (nom,prenom,mdp,num_tel,email,type)VALUES(?,?,?,?,?,?)";
+            String requete2 ="INSERT INTO utilisateur (nom,prenom,mdp,email,Type)VALUES(?,?,?,?,?)";
             PreparedStatement pst= MyConnexion.getInstance().getCnx().prepareStatement(requete);
             PreparedStatement pst1= MyConnexion.getInstance().getCnx().prepareStatement(requete2);
             pst.setInt(1,t.getNb_fidelite());
             pst1.setString(1,t.getNom());
             pst1.setString(2,t.getPrenom());
             pst1.setString(3,t.getMdp());
-            pst1.setInt(4,t.getNum_tel());
-            pst1.setString(5,t.getEmail());
-            pst1.setString(6 ,t.getType().toString());
+           
+            pst1.setString(4,t.getEmail());
+            pst1.setString(5 ,t.getType().toString());
             
             
            pst1.executeUpdate();
@@ -81,7 +81,7 @@ public class ClientCRUD implements Utilisateur_CRUD <Client> {
         
         try {
             String requete5 =" UPDATE Client SET " + " nb_fidelite=? WHERE id = ?";
-            String requete6 =" UPDATE Utilisateur SET " + " nom= ?,prenom= ?,mdp= ?,num_tel=?,email=? ,type=? WHERE id = ?";
+            String requete6 =" UPDATE Utilisateur SET " + " nom= ?,prenom= ?,mdp= ?,email=? ,Type=? WHERE id = ?";
             
             PreparedStatement pst =MyConnexion.getInstance().getCnx().prepareStatement(requete5);
             PreparedStatement pst1 =MyConnexion.getInstance().getCnx().prepareStatement(requete6);
@@ -91,11 +91,11 @@ public class ClientCRUD implements Utilisateur_CRUD <Client> {
             pst1.setString(2,t.getPrenom());
             pst1.setString(3,t.getMdp());
             
-            pst1.setInt(4,t.getNum_tel());
-            pst1.setString(5,t.getEmail());
+           
+            pst1.setString(4,t.getEmail());
         
-             pst1.setString(6 ,t.getType().toString());
-             pst1.setInt(7, t.getId());
+             pst1.setString(5 ,t.getType().toString());
+             pst1.setInt(6, t.getId());
             pst.executeUpdate();
             pst1.executeUpdate();
             System.out.println(t.getNb_fidelite());
@@ -121,17 +121,10 @@ public class ClientCRUD implements Utilisateur_CRUD <Client> {
                F.setNom(rs.getString("nom"));
                F.setPrenom(rs.getString("prenom"));
                F.setMdp(rs.getString("mdp"));
-               F.setNum_tel(rs.getInt("num_tel"));
+               
                F.setEmail(rs.getString("email"));
               
-               if(rs.getString("type").toString().compareTo("Client")==0){
-              F.setType(Type.Types.Client);}
-              else if(rs.getString("type").toString().compareTo("nutritionniste")==0){
-                F.setType(Type.Types.coach);  
-              }
-              else{
-                F.setType(Type.Types.coach);      
-                      }
+               F.setType(rs.getString("Type"));
                String requete8 = "SELECT nb_fidelite FROM client WHERE id="+F.getId();
                Statement st1 = MyConnexion.getInstance().getCnx().createStatement();
            ResultSet rs1 = st1.executeQuery(requete8);
@@ -168,16 +161,9 @@ public class ClientCRUD implements Utilisateur_CRUD <Client> {
                F.setNom(rs.getString("nom"));
                F.setPrenom(rs.getString("prenom"));
                F.setMdp(rs.getString("mdp"));
-               F.setNum_tel(rs.getInt("num_tel"));
+              
                F.setEmail(rs.getString("email"));
-if(rs.getString("type").toString().compareTo("Client")==0){
-              F.setType(Type.Types.Client);}
-              else if(rs.getString("type").toString().compareTo("nutritionniste")==0){
-                F.setType(Type.Types.coach);  
-              }
-              else{
-                F.setType(Type.Types.coach);      
-                      }  
+               F.setType(rs.getString("Type"));
 
              F.setNb_fidelite(rs1.getInt("nb_fidelite"));
     
@@ -190,5 +176,22 @@ if(rs.getString("type").toString().compareTo("Client")==0){
         }
         return null;
         }
-   
+   public void Supprimer(Client c) {
+       try {
+            String requete3 ="DELETE FROM client WHERE id=?"+c.getId();
+            String requete4 ="DELETE FROM utilisateur WHERE id=?";
+            
+            PreparedStatement pst =MyConnexion.getInstance().getCnx().prepareStatement(requete3);
+            PreparedStatement pst1 =MyConnexion.getInstance().getCnx().prepareStatement(requete4);
+            pst.setInt(1, c.getId());
+            pst1.setInt(1, c.getId());
+            
+              pst.executeUpdate();
+              pst1.executeUpdate();
+          
+            System.out.println("client est supprimee");
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+    }
 }
