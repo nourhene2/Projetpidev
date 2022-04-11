@@ -1,0 +1,28 @@
+<table border="1">
+    <tr>
+        <td>quantite</td>
+        <td>prix</td>
+        <td>remise</td>
+        <td>dateD</td>
+        <td>dateF</td>
+        
+    </tr>
+    {% for Lignedecommande in Lignedecommandes %}
+        <tr>
+            <td>{{ Lignedecommande.quantite }}</td>
+            <td>{{ Lignedecommande.prix }}</td>
+            <td>{{ Lignedecommande.remise }}</td>
+            <td>{{ Lignedecommande.getDated()|date('d M Y') }}</td>
+            <td>{{ Lignedecommande.getDatef()|date('d M Y') }}</td>
+           <td> <a href="{{ path('deletelignedecommande',{'id':Lignedecommande.id}) }}">Delete</a> </td>
+           <td><a href="{{ path('updatelignedecommande',{'id':Lignedecommande.id}) }}">Update</a>
+
+
+            
+
+     
+        </tr>
+    {% endfor %}
+</table>
+
+

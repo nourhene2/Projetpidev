@@ -1,0 +1,23 @@
+
+<table border="1">
+    <tr>
+        <td>nom</td>
+        <td>date</td>
+        
+    </tr>
+    {% for Commande in Commandes %}
+        <tr>
+            <td>{{ Commande.nomc }}</td>
+            <td>{{ Commande.getDatec()|date('d M Y') }}</td>
+           <td> <a href="{{ path('deleteCommande',{'idc':Commande.idc}) }}">Delete</a> </td>
+           <td><a href="{{ path('updateCommande',{'idc':Commande.idc}) }}">Update</a>
+
+
+            
+
+     
+        </tr>
+    {% endfor %}
+</table>
+
+
