@@ -1,0 +1,24 @@
+GRoute("/new"
+public function new (Request $request): Response
+$annonce = new Annonces ();
+methods=f"GET'
+"POST"))
+if ($form-›issubmitted() && $form-›isvalid0)) f
+//recuperation des images transmises
+$images = $form-›get('images")-›getData();
+Boucle sur les images
+foreach ($images as simage) f
+on genere un nouveau nom de fichier unique avec mds. quessExtension recupere L'extension du fichier
+§fichier = md5(uniqid)))
+$image-›guessExtension();
+//on copie le fichier dans Le dossier upload
+$image-›move(
+§this-›getParameter('uploaddirectory"),
+§fichier
+/ on stocke L'image dans La bdd (son nom)
+Simg = new Images();
+$img-›setName($fichier);
+$annonce-›addImage($img);
+SentityManager=$this-›getDoctrine()-›getManager();
+SentityManager-›persist($annonce);
+SentityManager-›flush0);

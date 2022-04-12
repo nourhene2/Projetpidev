@@ -1,0 +1,22 @@
+<table border="1">
+    <tr>
+        <td>Categporie</td>
+        <td>Objectif</td>
+        <td>Image</td>
+        
+    </tr>
+    {% for Regime in Regimes %}
+        <tr>
+            <td>{{ Regime.categorie }}</td>
+           <td>{{ Regime.objectif }}</td>
+          <td> <img                     src="uploads/{{Regime.image}}"></img> </td>
+           <td> <a href="{{ path('deleteRegime',{'idR':Regime.idR}) }}">Delete</a> </td>
+           <td><a href="{{ path('updateRegime',{'idR':Regime.idR}) }}">Update</a>
+
+
+            
+
+     
+        </tr>
+    {% endfor %}
+</table>
